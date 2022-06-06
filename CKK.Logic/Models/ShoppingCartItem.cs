@@ -8,5 +8,9 @@ namespace CKK.Logic.Models
 {
     class ShoppingCartItem
     {
+        private Product _product;
+        private int _quantity;
+
+
     }
 }

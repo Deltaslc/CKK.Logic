@@ -8,5 +8,10 @@ namespace CKK.Logic.Models
 {
     class Customer
     {
+        private int _custid;
+        private string _custname;
+        private string _address;
+
+
     }
 }

@@ -8,5 +8,10 @@ namespace CKK.Logic.Models
 {
     class Product
     {
+        private int _prodid;
+        private string _prodname;
+        private decimal _price;
+
+
     }
 }
