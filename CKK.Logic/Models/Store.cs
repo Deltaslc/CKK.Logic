@@ -41,15 +41,17 @@ namespace CKK.Logic.Models
                 _product1 = prod;
             }
 
-            if (_product2 == null)
+            else if (_product2 == null)
             {
                 _product2 = prod;
             }
 
-            if (_product3 == null)
+            else if (_product3 == null)
             {
                 _product3 = prod;
             }
+
+            prod = null;
         }
 
         public void RemoveStoreItem(int productNum)
@@ -72,25 +74,23 @@ namespace CKK.Logic.Models
 
         public Product GetStoreItem(int productNum)
         {
-            if (_product1.GetId() == productNum)
+            if (productNum == 1)
             {
                 return _product1;
             }
 
-            else if (_product2.GetId() == productNum)
+            else if (productNum == 2)
             {
                 return _product2;
             }
 
-            else if (_product3.GetId() == productNum)
+            else if (productNum == 3)
             {
                 return _product3;
             }
-
-            else
-            {
+            
                 return null;
-            }
+            
         }
 
         public Product FindStoreItemById(int id)
@@ -110,10 +110,8 @@ namespace CKK.Logic.Models
                 return _product3;
             }
 
-            else
-            {
                 return null;
-            }
+            
         }
     }
 }
