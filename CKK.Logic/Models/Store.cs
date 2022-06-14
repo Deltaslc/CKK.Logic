@@ -72,10 +72,48 @@ namespace CKK.Logic.Models
 
         public Product GetStoreItem(int productNum)
         {
+            if (_product1.GetId() == productNum)
+            {
+                return _product1;
+            }
+
+            else if (_product2.GetId() == productNum)
+            {
+                return _product2;
+            }
+
+            else if (_product3.GetId() == productNum)
+            {
+                return _product3;
+            }
+
+            else
+            {
+                return null;
+            }
         }
 
         public Product FindStoreItemById(int id)
         {
+            if (id == _product1.GetId())
+            {
+                return _product1;
+            }
+
+            else if (id == _product2.GetId())
+            {
+                return _product2;
+            }
+
+            else if (id == _product3.GetId())
+            {
+                return _product3;
+            }
+
+            else
+            {
+                return null;
+            }
         }
     }
 }
