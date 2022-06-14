@@ -36,5 +36,11 @@ namespace CKK.Logic.Models
         {
             _product = product;
         }
+
+        //get total
+        public decimal GetTotal()
+        {
+            double total = (double) _quantity * Product.price;
+        }
     }
 }
