@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Models
 {
-    class ShoppingCart
+    public class ShoppingCart
     {
         //variables for ShoppingCart
         private Customer _Customer;
