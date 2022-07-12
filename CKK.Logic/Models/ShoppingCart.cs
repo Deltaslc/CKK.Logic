@@ -48,17 +48,17 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product prod)
         {
-            if (prod = 1)
+            if (prod == null)
             {
                 return _product1;
             }
 
-            if (prod = 2)
+            if (prod == null)
             {
                 return _product2;
             }
 
-            if (prod = 3)
+            if (prod == null)
             {
                 return _product3;
             }
@@ -70,17 +70,17 @@ namespace CKK.Logic.Models
         {
             if (prod == _product1.GetProduct() && quantity <= 0)
             {
-                return _product1;
+                _product1 = null;
             }
 
             if (prod == _product2.GetProduct() && quantity <= 0)
             {
-                return _product3;
+                _product2 = null;
             }
 
             if (prod == _product3.GetProduct() && quantity <= 0)
             {
-                return _product3;
+                _product3 = null;
             }
 
             return null;
@@ -108,9 +108,8 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal()
         {
-            
+            return AddProduct(0,0);
         }
-
         public ShoppingCartItem GetProduct(int productNum)
         {
             if (productNum == 1)
