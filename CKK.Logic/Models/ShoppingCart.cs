@@ -26,24 +26,39 @@ namespace CKK.Logic.Models
             return _Customer.GetId();
         }
 
-        public ShoppingCartItem AddProduct(Product prod)
-        {
-
-        }
-
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
-            if (quantity <= 1 && prod == _product1.GetProduct())
+            if (quantity >= 1 && prod == _product1.GetProduct())
             {
                 return _product1;
             }
 
-            if (quantity <= 1 && prod == _product2.GetProduct())
+            if (quantity >= 1 && prod == _product2.GetProduct())
             {
                 return _product2;
             }
 
-            if (quantity <= 1 && prod == _product3.GetProduct())
+            if (quantity >= 1 && prod == _product3.GetProduct())
+            {
+                return _product3;
+            }
+
+            return null;
+        }
+
+        public ShoppingCartItem AddProduct(Product prod)
+        {
+            if (prod = 1)
+            {
+                return _product1;
+            }
+
+            if (prod = 2)
+            {
+                return _product2;
+            }
+
+            if (prod = 3)
             {
                 return _product3;
             }
@@ -53,7 +68,22 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem RemoveProduct(Product prod, int quantity)
         {
+            if (prod == _product1.GetProduct() && quantity <= 0)
+            {
+                return _product1;
+            }
 
+            if (prod == _product2.GetProduct() && quantity <= 0)
+            {
+                return _product3;
+            }
+
+            if (prod == _product3.GetProduct() && quantity <= 0)
+            {
+                return _product3;
+            }
+
+            return null;
         }
 
         public ShoppingCartItem GetProductById(int id)
@@ -63,12 +93,12 @@ namespace CKK.Logic.Models
                 return _product1;
             }
 
-            if (id = _product2.GetProduct())
+            else if (id = _product2.GetProduct())
             {
                 return _product2;
             }
 
-            if (id = _product3.GetProduct())
+            else if (id = _product3.GetProduct())
             {
                 return _product3;
             }
@@ -78,12 +108,27 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal()
         {
-
+            
         }
 
         public ShoppingCartItem GetProduct(int productNum)
         {
+            if (productNum == 1)
+            {
+                return _product1;
+            }
 
+            else if (productNum == 2)
+            {
+                return _product2;
+            }
+
+            else if (productNum == 3)
+            {
+                return _product3;
+            }
+
+            return null;
         }
     }
 }
