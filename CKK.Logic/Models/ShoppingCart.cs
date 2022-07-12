@@ -88,17 +88,17 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem GetProductById(int id)
         {
-            if (id = _product1.GetProduct())
+            if (id == _product1.GetProduct().GetId())
             {
                 return _product1;
             }
 
-            else if (id = _product2.GetProduct())
+            else if (id == _product2.GetProduct().GetId())
             {
                 return _product2;
             }
 
-            else if (id = _product3.GetProduct())
+            else if (id == _product3.GetProduct().GetId())
             {
                 return _product3;
             }
@@ -107,8 +107,13 @@ namespace CKK.Logic.Models
         }
 
         public decimal GetTotal()
-        {
-            return AddProduct(0,0);
+        { 
+            decimal _p1 = ( _product1.GetQuantity() * _product1.GetProduct().GetPrice() );
+            decimal _p2 = ( _product2.GetQuantity() * _product2.GetProduct().GetPrice() );
+            decimal _p3 = ( _product3.GetQuantity() * _product3.GetProduct().GetPrice() );
+
+            return _p1 + _p2 + _p3;
+
         }
         public ShoppingCartItem GetProduct(int productNum)
         {
