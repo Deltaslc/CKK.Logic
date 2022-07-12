@@ -12,7 +12,10 @@ namespace StructuredProject1.Logic.TestsForStudents
             try
             {
                 //assemble
-                ShoppingCart shoppingCart = new();  
+                //you have to have the customer portion in to determine what is actually in their shopping cart
+                //it also references Customer cust in the shopping cart itself.  Thats what the error is from.
+                Customer cust = new Customer();                
+                ShoppingCart shoppingCart = new ShoppingCart(cust);  
                 var expected = new Product();
                 shoppingCart.AddProduct(expected);
 
@@ -36,7 +39,8 @@ namespace StructuredProject1.Logic.TestsForStudents
             try
             {
                 //assemble
-                ShoppingCart shoppingCart = null;
+                Customer cust = new Customer();
+                ShoppingCart shoppingCart = new ShoppingCart(cust);
                 var product1 = new Product();
                 var expected = new Product();
                 shoppingCart.AddProduct(product1);
@@ -107,6 +111,7 @@ namespace StructuredProject1.Logic.TestsForStudents
             try
             {
                 //assemble
+
 
                 //act
 
