@@ -28,7 +28,8 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
-            if (quantity <= 0 && prod == _product1.GetProduct())
+            //3
+            // 3 ifs for null and 3 for addif (quantity <= 0 && prod == _product1.GetProduct())
             {
                 return null;
             }
