@@ -33,48 +33,60 @@ namespace CKK.Logic.Models
                 return null;
             }
 
-            if (quantity <= 1 && prod == _product1.GetProduct())
+            if (_product1 != null && _product1.GetProduct().GetId() == prod.GetId())
             {
+                _product1.SetQuantity(_product1.GetQuantity() + quantity);
                 return _product1;
             }
 
-            if (quantity <= 1 && prod == _product2.GetProduct())
+            if (_product2 != null && _product2.GetProduct().GetId() == prod.GetId())
             {
+                _product2.SetQuantity(_product2.GetQuantity() + quantity);
                 return _product2;
             }
 
-            if (quantity <= 1 && prod == _product3.GetProduct())
+            if (_product3 != null && _product3.GetProduct().GetId() == prod.GetId())
             {
+                _product3.SetQuantity(_product3.GetQuantity() + quantity);
                 return _product3;
             }
 
-            return null;
+            if (_product1 == null)
+            {
+                ShoppingCartItem _product1 = new ShoppingCartItem(prod, 1);
+                return _product1;
+            }
 
+            if (_product2 == null)
+            {
+                ShoppingCartItem _product2 = new ShoppingCartItem(prod, 1);
+                return _product2;
+            }
+
+            if (_product3 == null)
+            {
+                ShoppingCartItem _product3 = new ShoppingCartItem(prod, 1);
+                return _product3;
+            }
             
+            else
+            {
+                return null;
+            }
         }
 
         public ShoppingCartItem AddProduct(Product prod)
         {
-            if (prod == null)
-            {
-                return _product1;
-            }
-
-            else if (prod == null)
-            {
-                return _product2;
-            }
-
-            else if (prod == null)
-            {
-                return _product3;
-            }
-
-            return null;
+            return AddProduct(prod, 1);
         }
 
         public ShoppingCartItem RemoveProduct(Product prod, int quantity)
         {
+            if (quantity <1)
+            {
+                return null;
+            }
+
             if (prod == _product1.GetProduct() && quantity >= 0)
             {
                 _product1 = null;
