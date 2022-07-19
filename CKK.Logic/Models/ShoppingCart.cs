@@ -28,17 +28,32 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
-            if (quantity >= 1 && prod == _product1.GetProduct())
+            if (quantity <= 0 && prod == _product1.GetProduct())
+            {
+                return null;
+            }
+            
+            if (quantity <= 0 && prod == _product2.GetProduct())
+            {
+                return null;
+            }
+
+            if (quantity <= 0 && prod == _product3.GetProduct())
+            {
+                return null;
+            }
+
+            if (quantity <= 1 && prod == _product1.GetProduct())
             {
                 return _product1;
             }
 
-            if (quantity >= 1 && prod == _product2.GetProduct())
+            if (quantity <= 1 && prod == _product2.GetProduct())
             {
                 return _product2;
             }
 
-            if (quantity >= 1 && prod == _product3.GetProduct())
+            if (quantity <= 1 && prod == _product3.GetProduct())
             {
                 return _product3;
             }
@@ -106,15 +121,33 @@ namespace CKK.Logic.Models
             return null;
         }
 
-        public decimal GetTotal()
+        public decimal GetTotal() //make if statements to make sure if its null it returns null, if statement for each p (p=this or return null) then return the +
         { 
             decimal _p1 = ( _product1.GetQuantity() * _product1.GetProduct().GetPrice() );
             decimal _p2 = ( _product2.GetQuantity() * _product2.GetProduct().GetPrice() );
             decimal _p3 = ( _product3.GetQuantity() * _product3.GetProduct().GetPrice() );
 
-            return _p1 + _p2 + _p3;
+            if (_p1 == 0)
+            {
+                return 0;
+            }
 
+            if (_p2 == 0)
+            {
+                return 0;
+            }
+
+            if (_p3 == 0)
+            {
+                return 0;
+            }
+
+            else
+            {
+                return _p1 + _p2 + _p3;
+            }
         }
+
         public ShoppingCartItem GetProduct(int productNum)
         {
             if (productNum == 1)

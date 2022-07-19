@@ -14,16 +14,17 @@ namespace StructuredProject1.Logic.TestsForStudents
                 //assemble
                 //you have to have the customer portion in to determine what is actually in their shopping cart
                 //it also references Customer cust in the shopping cart itself.  Thats what the error is from.
+                //you can reference shopping cart in the variable location, in act it is referencing all of getproduct totals not just 1.
                 Customer cust = new Customer();                
                 ShoppingCart shoppingCart = new ShoppingCart(cust);  
                 var expected = new Product();
-                shoppingCart.AddProduct(expected);
+                shoppingCart.AddProduct(expected, 1);
 
                 //act
-                var actual = shoppingCart.GetProduct(1).GetProduct();
+                ShoppingCartItem actual = shoppingCart.GetProduct(1);
 
                 //assert
-                Assert.Equal(expected, actual);
+                Assert.Equal(expected.GetId(), actual.GetProduct().GetId());
             }
             catch
             {
@@ -44,7 +45,7 @@ namespace StructuredProject1.Logic.TestsForStudents
                 var product1 = new Product();
                 var expected = new Product();
                 shoppingCart.AddProduct(product1);
-                shoppingCart.AddProduct(expected);
+                shoppingCart.AddProduct(expected, 2);
 
                 //act
                 var actual = shoppingCart.GetProduct(2).GetProduct();
@@ -71,7 +72,7 @@ namespace StructuredProject1.Logic.TestsForStudents
                 var expected = new Product();
                 shoppingCart.AddProduct(product1);
                 shoppingCart.AddProduct(product2);
-                shoppingCart.AddProduct(expected);
+                shoppingCart.AddProduct(expected, 3);
 
                 //act
                 var actual = shoppingCart.GetProduct(3).GetProduct();
