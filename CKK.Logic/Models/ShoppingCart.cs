@@ -30,6 +30,7 @@ namespace CKK.Logic.Models
         {
             //3
             // 3 ifs for null and 3 for addif (quantity <= 0 && prod == _product1.GetProduct())
+            //check for quantity first and check for mnulls, then add to it
             {
                 return null;
             }
