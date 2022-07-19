@@ -28,19 +28,7 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
-            //3
-            // 3 ifs for null and 3 for addif (quantity <= 0 && prod == _product1.GetProduct())
-            //check for quantity first and check for mnulls, then add to it
-            {
-                return null;
-            }
-            
-            if (quantity <= 0 && prod == _product2.GetProduct())
-            {
-                return null;
-            }
-
-            if (quantity <= 0 && prod == _product3.GetProduct())
+            if (quantity < 1)
             {
                 return null;
             }
@@ -61,6 +49,8 @@ namespace CKK.Logic.Models
             }
 
             return null;
+
+            
         }
 
         public ShoppingCartItem AddProduct(Product prod)
@@ -110,12 +100,12 @@ namespace CKK.Logic.Models
                 return _product1;
             }
 
-            else if (id == _product2.GetProduct().GetId())
+            if (id == _product2.GetProduct().GetId())
             {
                 return _product2;
             }
 
-            else if (id == _product3.GetProduct().GetId())
+            if (id == _product3.GetProduct().GetId())
             {
                 return _product3;
             }
@@ -123,31 +113,13 @@ namespace CKK.Logic.Models
             return null;
         }
 
-        public decimal GetTotal() //make if statements to make sure if its null it returns null, if statement for each p (p=this or return null) then return the +
+        public decimal GetTotal()
         { 
             decimal _p1 = ( _product1.GetQuantity() * _product1.GetProduct().GetPrice() );
             decimal _p2 = ( _product2.GetQuantity() * _product2.GetProduct().GetPrice() );
             decimal _p3 = ( _product3.GetQuantity() * _product3.GetProduct().GetPrice() );
 
-            if (_p1 == 0)
-            {
-                return 0;
-            }
-
-            if (_p2 == 0)
-            {
-                return 0;
-            }
-
-            if (_p3 == 0)
-            {
-                return 0;
-            }
-
-            else
-            {
-                return _p1 + _p2 + _p3;
-            }
+            return _p1 + _p2 + _p3;
         }
 
         public ShoppingCartItem GetProduct(int productNum)
@@ -157,12 +129,12 @@ namespace CKK.Logic.Models
                 return _product1;
             }
 
-            else if (productNum == 2)
+            if (productNum == 2)
             {
                 return _product2;
             }
 
-            else if (productNum == 3)
+            if (productNum == 3)
             {
                 return _product3;
             }

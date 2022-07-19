@@ -18,13 +18,14 @@ namespace StructuredProject1.Logic.TestsForStudents
                 Customer cust = new Customer();                
                 ShoppingCart shoppingCart = new ShoppingCart(cust);  
                 var expected = new Product();
+                expected.SetId(214);
                 shoppingCart.AddProduct(expected, 1);
-
+                
                 //act
                 ShoppingCartItem actual = shoppingCart.GetProduct(1);
 
                 //assert
-                Assert.Equal(expected.GetId(), actual.GetProduct().GetId());
+                Assert.Equal(214, actual.GetProduct().GetId());
             }
             catch
             {
