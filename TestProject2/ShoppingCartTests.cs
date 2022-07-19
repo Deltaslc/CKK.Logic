@@ -11,25 +11,26 @@ namespace StructuredProject1.Logic.TestsForStudents
         {
             try
             {
-                //assemble
+                // Assemble
                 //you have to have the customer portion in to determine what is actually in their shopping cart
                 //it also references Customer cust in the shopping cart itself.  Thats what the error is from.
                 //you can reference shopping cart in the variable location, in act it is referencing all of getproduct totals not just 1.
+                
                 Customer cust = new Customer();                
                 ShoppingCart shoppingCart = new ShoppingCart(cust);  
                 var expected = new Product();
                 expected.SetId(214);
                 shoppingCart.AddProduct(expected, 1);
                 
-                //act
+                // Act
                 ShoppingCartItem actual = shoppingCart.GetProduct(1);
 
-                //assert
+                // Assert
                 Assert.Equal(214, actual.GetProduct().GetId());
             }
             catch
             {
-                //assert failure
+                // Assert failure
                 throw new XunitException("Opps.. you don't know what you are doing!");
             }
 
@@ -40,23 +41,24 @@ namespace StructuredProject1.Logic.TestsForStudents
         {
             try
             {
-                //assemble
+                // Assemble
                 Customer cust = new Customer();
                 ShoppingCart shoppingCart = new ShoppingCart(cust);
                 var product1 = new Product();
                 var expected = new Product();
+                expected.SetId(216);
                 shoppingCart.AddProduct(product1);
                 shoppingCart.AddProduct(expected, 2);
 
-                //act
-                var actual = shoppingCart.GetProduct(2).GetProduct();
+                // Act
+                ShoppingCartItem actual = shoppingCart.GetProduct(2);
 
-                //assert
-                Assert.Equal(expected, actual);
+                // Assert
+                Assert.Equal(216, actual.GetProduct().GetId());
             }
             catch
             {
-                //assert failure
+                // Assert failure
                 throw new XunitException("Really, you do not!");
             }
         }
@@ -66,25 +68,27 @@ namespace StructuredProject1.Logic.TestsForStudents
         {
             try
             {
-                //assemble
-                ShoppingCart shoppingCart = null;
+                // Assemble
+                Customer cust = new Customer();
+                ShoppingCart shoppingCart = new ShoppingCart(cust);
                 var product1 = new Product();
                 var product2 = new Product();
                 var expected = new Product();
+                expected.SetId(218);
                 shoppingCart.AddProduct(product1);
                 shoppingCart.AddProduct(product2);
                 shoppingCart.AddProduct(expected, 3);
 
-                //act
-                var actual = shoppingCart.GetProduct(3).GetProduct();
+                // Act
+                ShoppingCartItem actual = shoppingCart.GetProduct(3);
 
-                //assert
-                Assert.Equal(expected, actual);
+                // Assert
+                Assert.Equal(218, actual.GetProduct().GetId());
             }
             catch
             {
-                //assert failure
-                throw new XunitException("Why do you do this, figure it out!");
+                // Assert failure
+                throw new XunitException("Really, you do not!");
             }
         }
 
@@ -93,15 +97,15 @@ namespace StructuredProject1.Logic.TestsForStudents
         {
             try
             {
-                //assemble
+                // Assemble
 
-                //act
+                // Act
 
-                //assert
+                // Assert
             }
             catch
             {
-                //assert failure
+                // Assert failure
                 throw new XunitException("What are you doing!");
             }
 
@@ -112,16 +116,16 @@ namespace StructuredProject1.Logic.TestsForStudents
         {
             try
             {
-                //assemble
+                // Assemble
 
 
-                //act
+                // Act
 
-                //assert
+                // Assert
             }
             catch
             {
-                //assert failure
+                // Assert failure
                 throw new XunitException("You can do this correctly, do not give up!");
             }
         }
