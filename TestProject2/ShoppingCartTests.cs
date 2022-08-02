@@ -181,11 +181,20 @@ namespace StructuredProject1.Logic.TestsForStudents
             try
             {
                 // Assemble
-
+                Customer cust = new Customer();
+                ShoppingCart shoppingCart = new ShoppingCart(cust);
+                var price = 10m;
+                var quantity = 5;
+                var expected = 50;
+                var product = new Product();
+                product.SetPrice(price);
+                var shoppingCartItem = new ShoppingCartItem(product, quantity);
 
                 // Act
+                var actual = shoppingCartItem.GetTotal();
 
                 // Assert
+                Assert.Equal(expected, actual);
             }
             catch
             {
