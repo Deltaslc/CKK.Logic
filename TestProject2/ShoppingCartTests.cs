@@ -48,7 +48,7 @@ namespace StructuredProject1.Logic.TestsForStudents
                 var expected = new Product();
                 expected.SetId(216);
                 shoppingCart.AddProduct(product1);
-                shoppingCart.AddProduct(expected, 2);
+                shoppingCart.AddProduct(expected, 1);
 
                 // Act
                 ShoppingCartItem actual = shoppingCart.GetProduct(2);
@@ -75,6 +75,7 @@ namespace StructuredProject1.Logic.TestsForStudents
                 var product2 = new Product();
                 var expected = new Product();
                 expected.SetId(218);
+                product2.SetId(216);
                 shoppingCart.AddProduct(product1);
                 shoppingCart.AddProduct(product2);
                 shoppingCart.AddProduct(expected, 3);
@@ -88,7 +89,7 @@ namespace StructuredProject1.Logic.TestsForStudents
             catch
             {
                 // Assert failure
-                throw new XunitException("Really, you do not!");
+                throw new XunitException("So.. get it together!");
             }
         }
 
