@@ -83,7 +83,7 @@ namespace CKK.Logic.Models
         public ShoppingCartItem RemoveProduct(Product prod, int quantity)
         {
             // checking for quantity and removes it if found
-            if (quantity <1)
+            if (quantity >1)
             {
                 return null;
             }

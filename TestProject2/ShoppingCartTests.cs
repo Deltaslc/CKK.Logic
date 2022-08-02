@@ -7,7 +7,7 @@ namespace StructuredProject1.Logic.TestsForStudents
     public class ShoppingCartTests
     {
         [Fact]
-        public void AddProduct_FirstGo()
+        public void AddProductTest_FirstGo()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace StructuredProject1.Logic.TestsForStudents
         }
 
         [Fact]
-        public void AddProduct_SecondGo()
+        public void AddProductTest_SecondGo()
         {
             try
             {
@@ -64,7 +64,7 @@ namespace StructuredProject1.Logic.TestsForStudents
         }
 
         [Fact]
-        public void AddProduct_ThirdGo()
+        public void AddProductTest_ThirdGo()
         {
             try
             {
@@ -94,20 +94,83 @@ namespace StructuredProject1.Logic.TestsForStudents
         }
 
         [Fact]
-        public void RemovingProductTest()
+        public void RemovingProductTest_FirstGo()
         {
             try
             {
                 // Assemble
-
+                Customer cust = new Customer();
+                ShoppingCart shoppingCart = new ShoppingCart(cust);
+                var product1 = new Product();
+                shoppingCart.AddProduct(product1);
+                
                 // Act
+                shoppingCart.RemoveProduct(product1, 1);
 
                 // Assert
+                Assert.Null(shoppingCart.RemoveProduct(product1, 1));
             }
             catch
             {
                 // Assert failure
                 throw new XunitException("What are you doing!");
+            }
+
+        }
+
+        [Fact]
+        public void RemovingProductTest_SecondGo()
+        {
+            try
+            {
+                // Assemble
+                Customer cust = new Customer();
+                ShoppingCart shoppingCart = new ShoppingCart(cust);
+                var product1 = new Product();
+                var product2 = new Product();
+                shoppingCart.AddProduct(product1);
+                shoppingCart.AddProduct(product2);
+
+                // Act
+                shoppingCart.RemoveProduct(product2, 1);
+
+                // Assert
+                Assert.Null(shoppingCart.RemoveProduct(product2, 1));
+            }
+            catch
+            {
+                // Assert failure
+                throw new XunitException("Think it through!");
+            }
+
+        }
+
+        [Fact]
+        public void RemovingProductTest_ThirdGo()
+        {
+            try
+            {
+                // Assemble
+                Customer cust = new Customer();
+                ShoppingCart shoppingCart = new ShoppingCart(cust);
+                var product1 = new Product();
+                var product2 = new Product();
+                var product3 = new Product();
+                product2.SetId(216);
+                shoppingCart.AddProduct(product1);
+                shoppingCart.AddProduct(product2);
+                shoppingCart.AddProduct(product3);
+
+                // Act
+                shoppingCart.RemoveProduct(product3, 1);
+
+                // Assert
+                Assert.Null(shoppingCart.RemoveProduct(product3, 1));
+            }
+            catch
+            {
+                // Assert failure
+                throw new XunitException("You can so totally do it!");
             }
 
         }
