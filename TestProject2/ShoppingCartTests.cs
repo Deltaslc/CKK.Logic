@@ -150,7 +150,7 @@ namespace StructuredProject1.Logic.TestsForStudents
         {
             try
             {
-                // Assemble
+                // Assemble 
                 Customer cust = new Customer();
                 ShoppingCart shoppingCart = new ShoppingCart(cust);
                 var product1 = new Product();
