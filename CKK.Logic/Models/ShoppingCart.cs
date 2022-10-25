@@ -41,15 +41,16 @@ namespace CKK.Logic.Models
                 from p in Products
                 select p;
 
+            //add product it quantity is found?
             if (newItems != null)
             {
                 return Products.SingleOrDefault(p => p.GetProduct().GetId() == prod.GetId());
             }
             
-            //add new product if none
+            //add new product if there is none?
             if (newItems == null)
             {
-                return Products.SetQuantity(p => p.GetQuantity() + quantity);
+                Products = new List<ShoppingCartItem>();
             }
 
             return null;
@@ -72,8 +73,8 @@ namespace CKK.Logic.Models
 
             //if (_product2 != null && _product2.GetProduct().GetId() == prod.GetId())
             //{
-              //  _product2.SetQuantity(_product2.GetQuantity() + quantity);
-               // return _product2;
+                //_product2.SetQuantity(_product2.GetQuantity() + quantity);
+                //return _product2;
             //}
 
             //if (_product3 != null && _product3.GetProduct().GetId() == prod.GetId())
