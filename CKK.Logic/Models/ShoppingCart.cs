@@ -10,9 +10,9 @@ namespace CKK.Logic.Models
     {
         //variables for ShoppingCart
         private Customer _Customer;
-        private ShoppingCartItem _product1;
-        private ShoppingCartItem _product2;
-        private ShoppingCartItem _product3;
+        //private ShoppingCartItem _product1;
+        //private ShoppingCartItem _product2;
+        //private ShoppingCartItem _product3;
         private List<ShoppingCartItem> Products;
 
         //constructor for receiving Customer
@@ -87,15 +87,16 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal()
         {
-            var product =
+            var total =
                 from p in Products
+                where p.GetQuantity() * p.GetProduct().GetPrice()
                 select p; 
 
-            decimal _p1 = ( _product1.GetQuantity() * _product1.GetProduct().GetPrice() );
-            decimal _p2 = ( _product2.GetQuantity() * _product2.GetProduct().GetPrice() );
-            decimal _p3 = ( _product3.GetQuantity() * _product3.GetProduct().GetPrice() );
+            //decimal _p1 =  _product1.GetQuantity() * _product1.GetProduct().GetPrice() ;
+            //decimal _p2 =  _product2.GetQuantity() * _product2.GetProduct().GetPrice() ;
+            //decimal _p3 =  _product3.GetQuantity() * _product3.GetProduct().GetPrice() ;
 
-            return _p1 + _p2 + _p3;
+            return total;
         }
 
         public List<ShoppingCartItem> GetProducts()
