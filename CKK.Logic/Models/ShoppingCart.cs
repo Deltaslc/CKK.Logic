@@ -89,7 +89,7 @@ namespace CKK.Logic.Models
         {
             var total =
                 from p in Products
-                where p.GetQuantity() * p.GetProduct().GetPrice()
+                let Total = p.GetQuantity() * p.GetProduct().GetPrice()
                 select p; 
 
             //decimal _p1 =  _product1.GetQuantity() * _product1.GetProduct().GetPrice() ;
