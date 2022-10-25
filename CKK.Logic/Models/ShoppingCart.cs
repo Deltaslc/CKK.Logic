@@ -56,58 +56,24 @@ namespace CKK.Logic.Models
             return null;
         }
 
-        //public ShoppingCartItem AddProduct(Product prod, int quantity)
-        //{
-            // checks for valid quantity
-            //if (quantity < 1)
-            //{
-                //return null;
-            //}
-
-            // checking for product and adds the quantity if its found
-            //if (_product1 != null && _product1.GetProduct().GetId() == prod.GetId())
-            //{
-                //_product1.SetQuantity(_product1.GetQuantity() + quantity);
-                //return _product1;
-            //}
-
-            //if (_product2 != null && _product2.GetProduct().GetId() == prod.GetId())
-            //{
-                //_product2.SetQuantity(_product2.GetQuantity() + quantity);
-                //return _product2;
-            //}
-
-            //if (_product3 != null && _product3.GetProduct().GetId() == prod.GetId())
-            //{
-            //    _product3.SetQuantity(_product3.GetQuantity() + quantity);
-             //   return _product3;
-            ///}
-
-            // adding new product if there is none
-            //if (_product1 == null)
-            //{
-             //   _product1 = new ShoppingCartItem(prod, quantity);
-             //   return _product1;
-            //}
-
-            //if (_product2 == null)
-            //{
-            //    _product2 = new ShoppingCartItem(prod, quantity);
-            //    return _product2;
-            //}
-
-            //if (_product3 == null)
-            //{
-            //    _product3 = new ShoppingCartItem(prod, quantity);
-            //    return _product3;
-            //}
-
-            //return null;
-        //}
-
         public ShoppingCartItem RemoveProduct(int id, int quantity)
         {
+            //check for quantity and remove if found
+            if (quantity > 1)
+            {
+                return null;
+            }
 
+            //linq query to find product and remove it
+            var removeItems =
+                from p in Products
+                select p;
+
+            //remove product if found
+            if (removeItems != null)
+            {
+                return null;
+            }
 
             return null;
         }
@@ -167,7 +133,11 @@ namespace CKK.Logic.Models
         }
 
         public decimal GetTotal()
-        { 
+        {
+            var product =
+                from p in Products
+                select p; 
+
             decimal _p1 = ( _product1.GetQuantity() * _product1.GetProduct().GetPrice() );
             decimal _p2 = ( _product2.GetQuantity() * _product2.GetProduct().GetPrice() );
             decimal _p3 = ( _product3.GetQuantity() * _product3.GetProduct().GetPrice() );
@@ -179,5 +149,65 @@ namespace CKK.Logic.Models
         {
             return Products;
         }
+
+
+
+
+
+
+
+        //public ShoppingCartItem AddProduct(Product prod, int quantity)
+        //{
+        // checks for valid quantity
+        //if (quantity < 1)
+        //{
+        //return null;
+        //}
+
+        // checking for product and adds the quantity if its found
+        //if (_product1 != null && _product1.GetProduct().GetId() == prod.GetId())
+        //{
+        //_product1.SetQuantity(_product1.GetQuantity() + quantity);
+        //return _product1;
+        //}
+
+        //if (_product2 != null && _product2.GetProduct().GetId() == prod.GetId())
+        //{
+        //_product2.SetQuantity(_product2.GetQuantity() + quantity);
+        //return _product2;
+        //}
+
+        //if (_product3 != null && _product3.GetProduct().GetId() == prod.GetId())
+        //{
+        //    _product3.SetQuantity(_product3.GetQuantity() + quantity);
+        //   return _product3;
+        ///}
+
+        // adding new product if there is none
+        //if (_product1 == null)
+        //{
+        //   _product1 = new ShoppingCartItem(prod, quantity);
+        //   return _product1;
+        //}
+
+        //if (_product2 == null)
+        //{
+        //    _product2 = new ShoppingCartItem(prod, quantity);
+        //    return _product2;
+        //}
+
+        //if (_product3 == null)
+        //{
+        //    _product3 = new ShoppingCartItem(prod, quantity);
+        //    return _product3;
+        //}
+
+        //return null;
+        //}
+
+
+
+
+
     }
 }
