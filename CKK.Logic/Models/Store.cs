@@ -13,6 +13,12 @@ namespace CKK.Logic.Models
         private Product _product1;
         private Product _product2;
         private Product _product3;
+        private List<StoreItem> Items;
+
+        public Store()
+        {
+            Items = new List<StoreItem>();
+        }
 
         public int GetId()
         {
@@ -34,24 +40,11 @@ namespace CKK.Logic.Models
             _name = name;
         }
 
-        public void AddStoreItem(Product prod)
+        public StoreItem AddStoreItem(Product prod, int quantity)
         {
-            if (_product1 == null)
-            {
-                _product1 = prod;
-            }
 
-            else if (_product2 == null)
-            {
-                _product2 = prod;
-            }
 
-            else if (_product3 == null)
-            {
-                _product3 = prod;
-            }
-
-            prod = null;
+            return null;
         }
 
         public void RemoveStoreItem(int productNum)
@@ -72,46 +65,16 @@ namespace CKK.Logic.Models
             }
         }
 
-        public Product GetStoreItem(int productNum)
+        public List<StoreItem> GetStoreItem()
         {
-            if (productNum == 1)
-            {
-                return _product1;
-            }
-
-            else if (productNum == 2)
-            {
-                return _product2;
-            }
-
-            else if (productNum == 3)
-            {
-                return _product3;
-            }
-            
-                return null;
-            
+            return Items;
         }
 
-        public Product FindStoreItemById(int id)
+        public Product FindStoreItemById(int id) 
         {
-            if (id == _product1.GetId())
-            {
-                return _product1;
-            }
+            Items.FirstOrDefault(x => GetId() == id);
 
-            else if (id == _product2.GetId())
-            {
-                return _product2;
-            }
-
-            else if (id == _product3.GetId())
-            {
-                return _product3;
-            }
-
-                return null;
-            
+            return null;
         }
     }
 }
