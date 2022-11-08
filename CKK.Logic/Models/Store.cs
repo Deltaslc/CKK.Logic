@@ -65,16 +65,14 @@ namespace CKK.Logic.Models
             }
         }
 
-        public List<StoreItem> GetStoreItem()
+        public StoreItem FindStoreItemById(int id) 
         {
-            return Items;
+            return Items.FirstOrDefault(x => x.GetProduct().GetId() == id);            
         }
 
-        public Product FindStoreItemById(int id) 
+        public List<StoreItem> GetStoreItems()
         {
-            Items.FirstOrDefault(x => GetId() == id);
-
-            return null;
+            return Items;
         }
     }
 }
