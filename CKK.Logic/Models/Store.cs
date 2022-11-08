@@ -39,9 +39,27 @@ namespace CKK.Logic.Models
 
         public StoreItem AddStoreItem(Product prod, int quantity)
         {
+            if (quantity < 0)
+            {
+                return null;
+            }
 
+            //linq query to add item
+            var addItem =
+                FindStoreItemById(GetId());
 
-            return null;
+            if (addItem == null)
+            {
+                addItem = new StoreItem(prod, quantity);
+
+                return addItem;
+            }
+            else
+            {
+                addItem.SetQuantity(prod.GetId() + quantity);
+                return addItem;
+            }
+            
         }
 
         public StoreItem RemoveStoreItem(int id, int quantity)
