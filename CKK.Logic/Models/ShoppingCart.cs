@@ -10,9 +10,6 @@ namespace CKK.Logic.Models
     {
         //variables for ShoppingCart
         private Customer _Customer;
-        private ShoppingCartItem _product1;
-        private ShoppingCartItem _product2;
-        private ShoppingCartItem _product3;
         private List<ShoppingCartItem> Products;
 
         //constructor for receiving Customer
@@ -37,23 +34,21 @@ namespace CKK.Logic.Models
             }
 
             //Use Linq query to find product and add
-            var newItems =
-                from p in Products
-                select p;
+            var cartProduct =
+                GetProductById(1);
 
             //add product it quantity is found?
-            if (newItems != null)
+            if (Products == null)
             {
-                return Products.SingleOrDefault(p => p.GetProduct().GetId() == prod.GetId());
-            }
-            
-            //add new product if there is none?
-            if (newItems == null)
-            {
-                Products = new List<ShoppingCartItem>();
-            }
+                cartProduct = new ShoppingCartItem(prod, quantity);
 
-            return null;
+                return cartProduct;
+            }
+            else
+            {
+                cartProduct.SetQuantity(prod.GetId() + quantity);
+                return cartProduct;
+            }                        
         }
 
         public ShoppingCartItem RemoveProduct(int id, int quantity)
@@ -86,15 +81,17 @@ namespace CKK.Logic.Models
         public decimal GetTotal()
         {
             //var total =
-                //from p in Products
-                //let Total = p.GetQuantity() * p.GetProduct().GetPrice()
-                //select p; 
+            //from p in Products
+            //let Total = p.GetQuantity() * p.GetProduct().GetPrice()
+            //select p; 
 
-            decimal _p1 =  _product1.GetQuantity() * _product1.GetProduct().GetPrice() ;
-            decimal _p2 =  _product2.GetQuantity() * _product2.GetProduct().GetPrice() ;
-            decimal _p3 =  _product3.GetQuantity() * _product3.GetProduct().GetPrice() ;
+            //decimal _p1 =  _product1.GetQuantity() * _product1.GetProduct().GetPrice() ;
+            //decimal _p2 =  _product2.GetQuantity() * _product2.GetProduct().GetPrice() ;
+            //decimal _p3 =  _product3.GetQuantity() * _product3.GetProduct().GetPrice() ;
 
-            return _p1 + _p2 + _p3;
+            //return _p1 + _p2 + _p3;
+
+            return 0;
         }
 
         public List<ShoppingCartItem> GetProducts()
