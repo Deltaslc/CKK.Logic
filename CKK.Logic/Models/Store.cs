@@ -10,9 +10,6 @@ namespace CKK.Logic.Models
     {
         private int _id;
         private string _name;
-        private Product _product1;
-        private Product _product2;
-        private Product _product3;
         private List<StoreItem> Items;
 
         public Store()
@@ -47,22 +44,9 @@ namespace CKK.Logic.Models
             return null;
         }
 
-        public void RemoveStoreItem(int productNum)
+        public StoreItem RemoveStoreItem(int id, int quantity)
         {
-            if (productNum == 1)
-            {
-                _product1 = null;
-            }
-
-            if (productNum == 2)
-            {
-                _product2 = null;
-            }
-
-            if (productNum == 3)
-            {
-                _product3 = null;
-            }
+            return null;
         }
 
         public StoreItem FindStoreItemById(int id) 
