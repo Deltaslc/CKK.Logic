@@ -50,6 +50,7 @@ namespace CKK.Logic.Models
 
             if (addItem == null)
             {
+                Items.Add(addItem);
                 addItem = new StoreItem(prod, quantity);
 
                 return addItem;
