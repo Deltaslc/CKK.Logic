@@ -35,18 +35,19 @@ namespace CKK.Logic.Models
 
             //Use Linq query to find product and add
             var cartProduct =
-                GetProductById(1);
+                GetProductById(quantity);
 
             //add product it quantity is found?
             if (Products == null)
             {
+                Products.Add(cartProduct);
                 cartProduct = new ShoppingCartItem(prod, quantity);
 
                 return cartProduct;
             }
             else
             {
-                cartProduct.SetQuantity(prod.GetId() + quantity);
+                cartProduct.SetQuantity(cartProduct.GetQuantity() + quantity);
                 return cartProduct;
             }                        
         }
